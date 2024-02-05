@@ -24,12 +24,28 @@ html {
     height: 85%;
     width: 30%;
     text-align: right;
+    position: relative;
+    left: -50rem;
+    animation: slide-from-left 3.5s ease-in-out forwards;
 }
+
+@keyframes slide-from-left {
+    80% {left: 1.5rem;}
+    100% {left: 0;}
+}
+
 
 .movie-poster {
     height: 100%;
     border-radius: 5px;
     margin-right: 2rem;
+    transition: all 1s;
+    cursor: pointer; 
+}
+
+.movie-poster:hover {
+    transform: scale(1.1);
+    box-shadow: 8px 8px 8px -4px rgb(139, 133, 133);
 }
 
 .movie-info-container {
@@ -39,9 +55,26 @@ html {
     padding-top: 2rem;
 }
 
+.movie-info-container > *:not(.movie-info-title) {
+    opacity: 0;
+    animation: fade-in 3.5s ease-in-out forwards;
+    animation-delay: 1s;
+}
+
+@keyframes fade-in {
+    100% {opacity: 1;}
+}
+
 .movie-info-title {
     text-transform: capitalize;
     margin-top: 2rem;
+    transform: translateY(-150px);
+    animation: slide-from-top 3.5s ease-in-out forwards;
+}
+
+@keyframes slide-from-top {
+    80% {transform: translateY(20px);}
+    100% {transform: translateY(0);}
 }
 
 .movie-genres {
